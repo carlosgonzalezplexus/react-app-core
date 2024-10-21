@@ -48,4 +48,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # Docs
 
-[](./docs/main/index.md)
+[Documentation](./docs/main/index.md)
