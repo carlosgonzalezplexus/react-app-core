@@ -4,7 +4,7 @@ import App from './App'
 describe('<App />', () => {
   it('mounts', () => {
     cy.mount(<App />);
-    cy.get('a.App-link').should('have.text', 'Learn React');
+    cy.get('h1').should('have.text', "Main page")
     cy.screenshot("main-page");
   })
 })
