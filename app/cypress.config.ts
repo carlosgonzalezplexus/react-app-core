@@ -9,7 +9,7 @@ export default defineConfig({
       framework: 'create-react-app',
       bundler: 'webpack',
     },
-    supportFile: false  ,
+    supportFile: 'cypress/support/component.ts',
     video: false
   }
 })

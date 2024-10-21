@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:cy": "cypress run"
+    "test:cy": "cypress run --component"
   },
   "eslintConfig": {
     "extends": [
@@ -41,10 +41,12 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@cypress/eslint-plugin-dev": "^6.0.0",
+    "@testing-library/cypress": "^10.0.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^13.5.0",
-    "cypress": "^13.15.0"
+    "cypress": "^13.15.0",
+    "eslint-plugin-cypress": "^4.0.0"
   }
 }
