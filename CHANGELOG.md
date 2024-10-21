@@ -1,7 +1,3 @@
-
-
-
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -14,3 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [] Create react app
   - Dockerfile config
   - New React 18 app
+
+[] Setup Cypress
+  - Initial simple test with snapshot
+  - Docs folder using snapsot
