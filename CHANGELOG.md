@@ -14,3 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [] Setup Cypress
   - Initial simple test with snapshot
   - Docs folder using snapsot
+
+[] Setup Cypress
+  - Enable chromium
