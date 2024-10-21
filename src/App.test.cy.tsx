@@ -3,8 +3,22 @@ import App from './App'
 import { MemoryRouter, createMemoryRouter } from 'react-router';
 import { routes } from './routes';
 import { RouterProvider } from 'react-router-dom';
+import { mockServer } from './mocks/node';
+import { HttpResponse, http } from 'msw';
 
 describe('<App />', () => {
+
+
+
+  beforeEach(() => {
+    mockServer.start()
+  })
+
+  afterEach(() => {
+    mockServer.resetHandlers();
+  })
+
+
   it('Loads main', () => {
     const router = createMemoryRouter(routes, {
       initialEntries: ["/"],
@@ -37,6 +51,22 @@ describe('<App />', () => {
       TEST: texto
     }}).as("apitest")
     cy.wait('@apitest')
+  });
+
+  it('Check mocked resposne call', () => {
+    const router = createMemoryRouter(routes, {
+      initialEntries: ["/"],
+    });
+    cy.mount(<RouterProvider router={router} /> );
+    cy.contains('button', 'Ir a pagina dos').click();
+    const texto = 'texto de prueba';
+    cy.get('input').type(texto)
+    cy.contains('button', 'Enviar').click();
+    cy.intercept("POST", "/test", {body: {
+      TEST: texto
+    }}).as("apitest")
+    cy.wait('@apitest')
+    cy.contains('div', 'pepe');
   });
 
 })
