@@ -2,33 +2,41 @@ import React from 'react';
 import { useCallback, useState } from "react";
 
 export const PageTwo = () => {
-  const [t,setT] = useState<string>()
-  const e = useCallback(() => {
-    fetch('/test', {
+  const [t, setT] = useState<string>()
+  const [lista, setlista] = useState<Array<string>>([])
+  const sampleApiCall = useCallback(() => {
+    fetch('/una-call', {
       method: 'POST',
-      body: JSON.stringify({TEST: t})
+      body: JSON.stringify({message: t})
     })
-    .then((r) => {
-     console.log('pruebas', r)
-    })
-    .catch((e) => {
-      console.warn('error', e)
-    })
-
-
-
-  }, [])
+    .then(r => r.json())
+      .then((r: any) => {
+        if(r) {
+          setlista(r)
+        }
+      })
+      .catch(() => {
+        throw false
+      })
+  }, [t])
 
   return (<>
-  <h1>Segunda pagina</h1>
-  <form  onSubmit={(() => {
-    e()
-  })}>
-    <input type="text" onChange={(v) => {
-      setT(v.target.value)
-    }} />
+    <h1>Segunda pagina</h1>
+
+    <form onSubmit={(e) => {
+      e.preventDefault()
+      sampleApiCall()
+    }}   >
+      <input type="text" onChange={(v) => {
+
+        setT(v.target.value)
+      }} />
       <button type="submit">Enviar</button>
 
-  </form>
+
+    </form>
+
+    <div>{lista.map((a) => (<div>{a}</div>))}</div>
+
   </>)
 }
