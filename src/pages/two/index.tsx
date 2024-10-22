@@ -3,16 +3,21 @@ import { useCallback, useState } from "react";
 
 export const PageTwo = () => {
   const [t, setT] = useState<string>()
+  const [lista, setlista] = useState<Array<string>>([])
   const sampleApiCall = useCallback(() => {
     fetch('/una-call', {
       method: 'POST',
-
       body: JSON.stringify({message: t})
     })
-      .then((r) => {
-        return r
+    .then(r => r.json())
+      .then((r: any) => {
+        if(r) {
+          setlista(r)
+        }
       })
-      .catch(() => false)
+      .catch(() => {
+        throw false
+      })
   }, [t])
 
   return (<>
@@ -30,6 +35,8 @@ export const PageTwo = () => {
 
 
     </form>
+
+    <div>{lista.map((a) => (<div>{a}</div>))}</div>
 
   </>)
 }
