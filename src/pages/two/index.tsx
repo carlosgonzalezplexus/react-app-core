@@ -21,7 +21,7 @@ export const PageTwo = () => {
   }, [t])
 
   return (<>
-    <h1>Segunda pagina</h1>
+    <h1>Second page</h1>
 
     <form onSubmit={(e) => {
       e.preventDefault()
@@ -31,7 +31,7 @@ export const PageTwo = () => {
 
         setT(v.target.value)
       }} />
-      <button type="submit">Enviar</button>
+      <button type="submit">Send</button>
 
 
     </form>

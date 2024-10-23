@@ -18,8 +18,8 @@ describe('<MainPage />', () => {
       initialEntries: ["/"],
     });
     cy.mount(<RouterProvider router={router} />);
-    cy.contains('button', 'Ir a pagina dos').click();
-    cy.get('h1').contains('Segunda pagina').should('be.visible');
+    cy.contains('button', 'Navigate').click();
+    cy.get('h1').contains('Second page').should('be.visible');
     cy.screenshot("page-two-loads");
   })
 })
