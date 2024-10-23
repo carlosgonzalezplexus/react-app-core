@@ -16,11 +16,11 @@ describe('<TowPage />', () => {
       initialEntries: ["/"],
     });
     cy.mount(<RouterProvider router={router} />);
-    cy.contains('button', 'Ir a pagina dos').click();
-    cy.get('h1').contains('Segunda pagina').should('be.visible');
+    cy.contains('button', 'Navigate').click();
+    cy.get('h1').contains('Second page').should('be.visible');
     const texto = 'texto de prueba';
     cy.get('input').type(texto)
-    cy.get('button').contains('Enviar').click();
+    cy.get('button').contains('Send').click();
     cy.wait('@apitest').its('request.body').should('eq', JSON.stringify({ message: texto }))
   });
 
@@ -30,11 +30,11 @@ describe('<TowPage />', () => {
       initialEntries: ["/"],
     });
     cy.mount(<RouterProvider router={router} />);
-    cy.contains('button', 'Ir a pagina dos').click();
-    cy.get('h1').contains('Segunda pagina').should('be.visible');
+    cy.contains('button', 'Navigate').click();
+    cy.get('h1').contains('Second page').should('be.visible');
     const texto = 'texto de prueba';
     cy.get('input').type(texto)
-    cy.get('button').contains('Enviar').click();
+    cy.get('button').contains('Send').click();
     // cy.wait('@apitest').its('response').should('eq', JSON.stringify({ body: {message: texto} }))
     cy.get('div').contains('respuesta')
     cy.screenshot("two/shows-sample-response")

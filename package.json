@@ -7,8 +7,10 @@
     "@types/node": "^16.18.114",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "i18next": "^23.16.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-i18next": "^15.1.0",
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
@@ -16,11 +18,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "test": "cypress run --headless --component --browser chromium",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:cy": "cypress run --headless --component --browser chromium",
-    "cypress:watch": "nodemon --exec 'npx cypress run --component --browser chromium' --ext js,jsx,ts,tsx"
+    "test:watch": "nodemon --exec 'npx cypress run --component --browser chromium' --ext js,jsx,ts,tsx"
   },
   "eslintConfig": {
     "extends": [
@@ -51,7 +52,8 @@
     "cypress": "^13.15.0",
     "eslint-plugin-cypress": "^4.0.0",
     "msw": "^2.4.12",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "sass": "^1.80.3"
   },
   "msw": {
     "workerDirectory": [
