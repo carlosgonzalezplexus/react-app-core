@@ -1,8 +1,34 @@
 # Plantilla para aplicación React
 
-Plantilla para aplicación front en React 18 con Typescript, desde [Create React App](https://github.com/facebook/create-react-app). 
+Plantilla para aplicación front en React 18 con Typescript, desde [Create React App](https://github.com/facebook/create-react-app).
 
-Test con Cypress.
+Testing en [Cypress](https://docs.cypress.io/) con [Testing Library](https://testing-library.com/docs/).
+
+Ejecutable dentro de contenedor Docker
+
+# Docs
+
+[Documentation](./docs/main/index.md)
+
+# Entorno de desarrollo
+
+Configurado para ejecutarse localmente dentro de un contenedor docker.
+
+## Preparar entorno
+
+**Levaltar aplicación en contenedor docker**
+
+docker-compose up
+
+Ejecuta automáticamente npm start
+
+**Entrar a terminal dentro del contenedor docker**
+
+Obtener id del contenedor:
+
+docker ps
+
+docker exec -ti [id-contenedor] sh
 
 ## Scripts
 
@@ -23,6 +49,10 @@ Lanza una vez colección completa de test en Cypress
 
 Lanza colección test refrescandose cuando se modifican ficheros.
 
+### `npm generate:api`
+
+Genera clientes REST con [Orval](https://orval.dev/overview) a partir de fichero configuracion
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -30,8 +60,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -43,34 +71,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-
-# Docs
-
-[Documentation](./docs/main/index.md)
-
-
-# Entorno de desarrollo
-
-Configurado para ejecutarse localmente dentro de un contenedor docker.
-
-## Preparar entorno
-
-**Levaltar aplicación en local**
-
-docker-compose up
-
-**Terminal dentro del contenedor**
-
-docker ps
-docker exec -ti [id-contenedor] sh
-
-## Herramientas
+# Herramientas
 
 [Typescript](https://www.typescriptlang.org/docs/)
 [Docker](https://docs.docker.com/)
