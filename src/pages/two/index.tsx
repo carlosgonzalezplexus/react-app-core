@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCallback, useState } from "react";
-import { login } from '../../api/generated/credentials/default';
 import { useTranslation } from 'react-i18next';
+import { userGetRoles } from '../../api/generated/users/default';
 
 export const PageTwo = () => {
   const {t} = useTranslation()
@@ -9,7 +9,7 @@ export const PageTwo = () => {
   const [lista, setlista] = useState<Array<string>>([])
   const sampleApiCall = useCallback(() => {
 
-    login({Password: 'any', UserName: text})
+    userGetRoles({UserName: text})
       .then((r) => {
         if(r) {
           setlista(r.roles)

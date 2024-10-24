@@ -1,14 +1,10 @@
 module.exports = {
-  'petstore-file': {
-    input: '../definitions/pockemon/pockemon.openapi.yaml',
-    output: '../generated/petstore.ts',
-  },
-  'credentials': {
-    input: '../definitions/credentials/credentials.openapi.yaml',
+  'users': {
+    input: '../definitions/users/users.openapi.yaml',
     output: {
-      target: '../generated/credentials/credentials.ts',
+      target: '../generated/users/users.ts',
       mode: 'tags',
-      title: 'LoginApi',
+      title: 'UsersApi',
       override: {
         mutator: {
           path: '../../services/config/axios.instance.ts',

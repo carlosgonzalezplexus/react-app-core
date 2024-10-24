@@ -7,7 +7,7 @@ import i18next from 'i18next';
 describe('<TowPage />', () => {
   beforeEach(() => {
     cy.intercept({
-      url: '/Security/AuthenticationPortal',
+      url: '/Users/GetRoles',
       method: 'POST',
     }, { fixture: 'sample' }).as("apitest")
   });
@@ -23,7 +23,7 @@ describe('<TowPage />', () => {
     const texto = 'texto de prueba';
     cy.findByPlaceholderText(i18next.t('two.input')).type(texto)
     cy.findByRole('button', {name:  i18next.t('two.send')}).click()
-    cy.wait('@apitest').its('request.body').should('eql', { Password: 'any', UserName: texto })
+    cy.wait('@apitest').its('request.body').should('eql', { UserName: texto })
   });
 
 
