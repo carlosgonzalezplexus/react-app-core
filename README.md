@@ -90,6 +90,9 @@ fichero component-index.html define plantilla dentro de la que se renderizan los
 
 [Orval](https://orval.dev/overview)
 
+
 # Docs
+
+Ejemplo de documentación de uso de aplicación aprovechando snapshots de cypress.
 
 [Documentation](./docs/main/index.md)
