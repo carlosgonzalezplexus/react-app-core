@@ -7,6 +7,7 @@
     "@types/node": "^16.18.114",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "axios": "^1.7.7",
     "i18next": "^23.16.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,7 +22,8 @@
     "test": "cypress run --headless --component --browser chromium",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test:watch": "nodemon --exec 'npx cypress run --component --browser chromium' --ext js,jsx,ts,tsx"
+    "test:watch": "nodemon --exec 'npx cypress run --component --browser chromium' --ext js,jsx,ts,tsx",
+    "generate:api": "orval --config src/api/config/api.config.js"
   },
   "eslintConfig": {
     "extends": [
@@ -49,15 +51,11 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^13.5.0",
+    "ajv": "^8.17.1",
     "cypress": "^13.15.0",
     "eslint-plugin-cypress": "^4.0.0",
-    "msw": "^2.4.12",
     "nodemon": "^3.1.7",
+    "orval": "^7.2.0",
     "sass": "^1.80.3"
-  },
-  "msw": {
-    "workerDirectory": [
-      "public"
-    ]
   }
 }

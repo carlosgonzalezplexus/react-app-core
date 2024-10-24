@@ -1,37 +1,37 @@
 import React from 'react';
 import { useCallback, useState } from "react";
+import { useTranslation } from 'react-i18next';
+import { userGetRoles } from '../../api/generated/users/default';
 
 export const PageTwo = () => {
-  const [t, setT] = useState<string>()
+  const {t} = useTranslation()
+  const [text, setT] = useState<string>('')
   const [lista, setlista] = useState<Array<string>>([])
   const sampleApiCall = useCallback(() => {
-    fetch('/una-call', {
-      method: 'POST',
-      body: JSON.stringify({message: t})
-    })
-    .then(r => r.json())
-      .then((r: any) => {
+
+    userGetRoles({UserName: text})
+      .then((r) => {
         if(r) {
-          setlista(r)
+          setlista(r.roles)
         }
       })
-      .catch(() => {
-        throw false
+      .catch((e) => {
+        console.warn(e)
       })
-  }, [t])
+  }, [text])
 
   return (<>
-    <h1>Second page</h1>
+    <h1>{t('two.title')}</h1>
 
     <form onSubmit={(e) => {
       e.preventDefault()
       sampleApiCall()
     }}   >
-      <input type="text" onChange={(v) => {
+      <input placeholder={t('two.input')} type="text" onChange={(v) => {
 
         setT(v.target.value)
       }} />
-      <button type="submit">Send</button>
+      <button type="submit">{t('two.send')}</button>
 
 
     </form>

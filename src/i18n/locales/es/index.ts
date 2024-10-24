@@ -1,5 +1,7 @@
-import common from './common'
+import main from './main'
+import two from './two'
 
 export default {
-  common
+  main,
+  two
 }

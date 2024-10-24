@@ -7,9 +7,9 @@ export const MainPage = () => {
   const { t} = useTranslation()
 
   return (<>
-  <h1 className="main-title">{t('common.title')}</h1>
+  <h1 className="main-title">{t('main.title')}</h1>
   <button onClick={( ) => {
     navigate("/two")
-  }}>Navigate</button>
+  }}>{t('main.navigate')}</button>
   </>)
 }

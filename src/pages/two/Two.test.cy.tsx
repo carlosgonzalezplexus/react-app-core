@@ -2,11 +2,12 @@ import React from 'react'
 import { createMemoryRouter } from 'react-router';
 import { routes } from '../../routes';
 import { RouterProvider } from 'react-router-dom';
+import i18next from 'i18next';
 
 describe('<TowPage />', () => {
   beforeEach(() => {
     cy.intercept({
-      url: '/una-call',
+      url: '/Users/GetRoles',
       method: 'POST',
     }, { fixture: 'sample' }).as("apitest")
   });
@@ -16,12 +17,13 @@ describe('<TowPage />', () => {
       initialEntries: ["/"],
     });
     cy.mount(<RouterProvider router={router} />);
-    cy.contains('button', 'Navigate').click();
-    cy.get('h1').contains('Second page').should('be.visible');
+    cy.findByRole('button', {name: i18next.t('main.navigate') }).click()
+    cy.findByRole('heading', {name: i18next.t('two.title')}).should('be.visible')
+    
     const texto = 'texto de prueba';
-    cy.get('input').type(texto)
-    cy.get('button').contains('Send').click();
-    cy.wait('@apitest').its('request.body').should('eq', JSON.stringify({ message: texto }))
+    cy.findByPlaceholderText(i18next.t('two.input')).type(texto)
+    cy.findByRole('button', {name:  i18next.t('two.send')}).click()
+    cy.wait('@apitest').its('request.body').should('eql', { UserName: texto })
   });
 
 
@@ -30,13 +32,13 @@ describe('<TowPage />', () => {
       initialEntries: ["/"],
     });
     cy.mount(<RouterProvider router={router} />);
-    cy.contains('button', 'Navigate').click();
-    cy.get('h1').contains('Second page').should('be.visible');
+    cy.findByRole('button', {name: i18next.t('main.navigate')  }).click()
+    cy.findByRole('heading', {name: i18next.t('two.title') }).should('be.visible')
+
     const texto = 'texto de prueba';
-    cy.get('input').type(texto)
-    cy.get('button').contains('Send').click();
-    // cy.wait('@apitest').its('response').should('eq', JSON.stringify({ body: {message: texto} }))
-    cy.get('div').contains('respuesta')
-    cy.screenshot("two/shows-sample-response")
+    cy.findByPlaceholderText( i18next.t('two.input')).type(texto)
+    cy.findByRole('button', {name: i18next.t('two.send')}).click()
+    cy.findByText('role1').should('be.visible')
+    cy.screenshot("two/display-response")
   });
 })
