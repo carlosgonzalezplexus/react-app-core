@@ -6,10 +6,6 @@ Testing en [Cypress](https://docs.cypress.io/) con [Testing Library](https://tes
 
 Ejecutable dentro de contenedor Docker
 
-# Docs
-
-[Documentation](./docs/main/index.md)
-
 # Entorno de desarrollo
 
 Configurado para ejecutarse localmente dentro de un contenedor docker.
@@ -18,7 +14,9 @@ Configurado para ejecutarse localmente dentro de un contenedor docker.
 
 **Levaltar aplicación en contenedor docker**
 
+```
 docker-compose up
+```
 
 Ejecuta automáticamente npm start
 
@@ -26,9 +24,13 @@ Ejecuta automáticamente npm start
 
 Obtener id del contenedor:
 
+```
 docker ps
 
 docker exec -ti [id-contenedor] sh
+
+```
+
 
 ## Scripts
 
@@ -87,3 +89,7 @@ fichero component-index.html define plantilla dentro de la que se renderizan los
 **Automatic api generation**
 
 [Orval](https://orval.dev/overview)
+
+# Docs
+
+[Documentation](./docs/main/index.md)
