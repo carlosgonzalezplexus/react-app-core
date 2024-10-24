@@ -1,23 +1,27 @@
-# Getting Started with Create React App
+# Plantilla para aplicación React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Plantilla para aplicación front en React 18 con Typescript, desde [Create React App](https://github.com/facebook/create-react-app). 
 
-## Available Scripts
+Test con Cypress.
+
+## Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
+Ejecutar aplicación para desarrollo.
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lanza una vez colección completa de test en Cypress
+
+### `npm test:watch`
+
+Lanza colección test refrescandose cuando se modifican ficheros.
 
 ### `npm run build`
 
@@ -49,3 +53,36 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # Docs
 
 [Documentation](./docs/main/index.md)
+
+
+# Entorno de desarrollo
+
+Configurado para ejecutarse localmente dentro de un contenedor docker.
+
+## Preparar entorno
+
+**Levaltar aplicación en local**
+
+docker-compose up
+
+**Terminal dentro del contenedor**
+
+docker ps
+docker exec -ti [id-contenedor] sh
+
+## Herramientas
+
+[Typescript](https://www.typescriptlang.org/docs/)
+[Docker](https://docs.docker.com/)
+
+**Testing**
+
+[Cypress](https://docs.cypress.io/)
+
+fichero component-index.html define plantilla dentro de la que se renderizan los componentes en los test
+
+[Testing Library](https://testing-library.com/docs/)
+
+**Automatic api generation**
+
+[Orval](https://orval.dev/overview)
